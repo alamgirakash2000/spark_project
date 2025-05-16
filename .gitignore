@@ -1,0 +1,9 @@
+__pycache__/
+log/
+**/*.egg-info/
+.vscode
+**/MUJOCO_LOG.TXT
+
+collected_data/
+il_bc_training/processed_tensors/
+**/processed_tensors/
