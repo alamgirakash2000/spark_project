@@ -5,6 +5,7 @@ import numpy as np
 from spark_policy.feedback.data_recorder import DataRecorder
 from spark_policy.feedback.data_processor import DataProcessor
 from spark_policy.feedback.bc_model_loader import load_bc_model, get_bc_action
+from spark_policy.feedback.walking_policy_loader import load_walking_policy, get_walking_action  # NEW for walking policy
 
 class G1TeleopPIDPolicy(BasePolicy):
     def __init__(self, robot_cfg: RobotConfig, robot_kinematics: RobotKinematics) -> None:
@@ -16,6 +17,9 @@ class G1TeleopPIDPolicy(BasePolicy):
         
         # Load BC model
         self.bc_model = load_bc_model()
+
+         # NEW: Load walking policy
+        self.walking_policy = load_walking_policy(policy_type="simple")  # or "cpg"
     
     def tracking_pos_with_vel(self, 
                               desired_dof_pos,
@@ -42,15 +46,31 @@ class G1TeleopPIDPolicy(BasePolicy):
         
         # Get BC model output
         bc_control = get_bc_action(self.bc_model, feature_vector)
+         # NEW: Get walking control
+        walking_control = get_walking_action(self.walking_policy, dt=0.01)
         info = {}
-        
+
+        #######################################
+        ##### Modified By Akash #######
+        #######################################
+
         #self.recorder.record_data_point(agent_feedback, task_info, dof_control)
-
-
+        
+        # Create full control array (now 28 elements instead of 20)
+        full_control = np.zeros(len(self.robot_cfg.DoFs))
+        
+        # Copy BC control to appropriate indices (UNCHANGED)
+        full_control[0:20] = bc_control[0:20]   # Waist + Arms (unchanged)
+        
+        # NEW: Add walking control to leg joints
+        #full_control[17:25] = walking_control   # 8 leg joints
+        full_control[21:28] = 0   # 8 leg joints
+        
         ###### EXAMPLE OPERATION DETAILS ######################
         '''
         To run with the PID policy, use: dof_control
         To run with the BC policy, use:  bc_control
+        To run with the walking policy, use: full_control
         '''
 
-        return bc_control, info
+        return full_control, info

@@ -4,6 +4,10 @@
 
 ### 1.Minimal
 
+
+## Change by Akash
+[Google Sheet](https://docs.google.com/document/d/1zC41hD39bUD1H3EJ7AC8FplVqQEscCAsZdiwAZT4yvo/edit?usp=sharing)
+
 Choose one to follow depending on your OS.
 
 #### 💻 Ubuntu 20.04

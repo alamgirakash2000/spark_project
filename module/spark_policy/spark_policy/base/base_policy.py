@@ -11,7 +11,6 @@ class BasePolicy(ABC):
         self.robot_kinematics : RobotKinematics = robot_kinematics
         self.num_dof = len(self.robot_cfg.DoFs)
         self.num_control = len(self.robot_cfg.Control)
-        print("Hello from the base policy")
     @abstractmethod
     def act(self, agent_feedback: dict, task_info: dict) -> None:
         pass

@@ -111,8 +111,8 @@ class DataProcessor:
         processed_obstacles_rel = self.get_closest_k_obstacles(obstacle_robot_relative)
         
         # Normalize everything
-        norm_dof_pos = self.normalize_joint_positions(dof_pos)
-        norm_dof_vel = self.normalize_joint_velocities(dof_vel)
+        norm_dof_pos = self.normalize_joint_positions(dof_pos[:20])  # Only first 20 DoFs
+        norm_dof_vel = self.normalize_joint_velocities(dof_vel[:20])  # Only first 20 DoFs
         norm_left_goal_rel = self.normalize_relative_positions(left_goal_rel)
         norm_right_goal_rel = self.normalize_relative_positions(right_goal_rel)
         norm_obstacles_rel = self.normalize_relative_positions(processed_obstacles_rel.reshape(self.K_OBSTACLES, 3)).flatten()

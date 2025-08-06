@@ -240,7 +240,7 @@
   </worldbody>
 
   <actuator>
-    <!-- <motor name="left_hip_pitch_joint" joint="left_hip_pitch_joint"/>
+    <motor name="left_hip_pitch_joint" joint="left_hip_pitch_joint"/>
     <motor name="left_hip_roll_joint" joint="left_hip_roll_joint"/>
     <motor name="left_hip_yaw_joint" joint="left_hip_yaw_joint"/>
     <motor name="left_knee_joint" joint="left_knee_joint"/>
@@ -251,7 +251,7 @@
     <motor name="right_hip_yaw_joint" joint="right_hip_yaw_joint"/>
     <motor name="right_knee_joint" joint="right_knee_joint"/>
     <motor name="right_ankle_pitch_joint" joint="right_ankle_pitch_joint"/>
-    <motor name="right_ankle_roll_joint" joint="right_ankle_roll_joint"/> -->
+    <motor name="right_ankle_roll_joint" joint="right_ankle_roll_joint"/>
     <motor name="waist_yaw_joint" joint="waist_yaw_joint"/>
     <motor name="waist_roll_joint" joint="waist_roll_joint"/>
     <motor name="waist_pitch_joint" joint="waist_pitch_joint"/>

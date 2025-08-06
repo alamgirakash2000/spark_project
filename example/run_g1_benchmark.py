@@ -14,10 +14,12 @@ if __name__ == "__main__":
                     safety_buffer = 0.1, # positive to allow hold state
                     slack_weight = 1e3,
                     control_weight = [
-                        1.0, 1.0, 1.0, # waist
-                        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, # left arm
-                        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, # right arm
-                        10.0, 10.0, 10.0 # locomotion
+                        1.0, 1.0, 1.0,  # waist (3)
+                        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,  # left arm (7) 
+                        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,  # right arm (7)
+                        1.0, 1.0, 1.0, 1.0,  # left leg (4) - NEW
+                        1.0, 1.0, 1.0, 1.0,  # right leg (4) - NEW  
+                        10.0, 10.0, 10.0  # base movement (3)
                     ]
                 ),
         'sss': dict(
@@ -25,10 +27,12 @@ if __name__ == "__main__":
                     lambda_SSS = 1.0,
                     slack_weight = 1e3,
                     control_weight = [
-                        1.0, 1.0, 1.0,
-                        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
-                        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
-                        1.0, 1.0, 1.0
+                        1.0, 1.0, 1.0,  # waist (3)
+                        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,  # left arm (7) 
+                        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,  # right arm (7)
+                        1.0, 1.0, 1.0, 1.0,  # left leg (4) - NEW
+                        1.0, 1.0, 1.0, 1.0,  # right leg (4) - NEW  
+                        10.0, 10.0, 10.0  # base movement (3)
                     ]
                 ),
         'cbf': dict(
@@ -36,10 +40,12 @@ if __name__ == "__main__":
                     lambda_cbf = 1,
                     slack_weight = 1e3,
                     control_weight = [
-                        1.0, 1.0, 1.0,
-                        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
-                        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,
-                        1.0, 1.0, 1.0
+                        1.0, 1.0, 1.0,  # waist (3)
+                        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,  # left arm (7) 
+                        1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,  # right arm (7)
+                        1.0, 1.0, 1.0, 1.0,  # left leg (4) - NEW
+                        1.0, 1.0, 1.0, 1.0,  # right leg (4) - NEW  
+                        10.0, 10.0, 10.0  # base movement (3)
                     ]
                 ),
         'pfm': dict(

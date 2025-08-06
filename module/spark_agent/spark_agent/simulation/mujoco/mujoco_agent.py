@@ -252,6 +252,8 @@ class MujocoAgent(SimulationAgent):
         qpos = np.zeros(self.model.nq)
         
         for mj_dof in self.robot_cfg.MujocoDoFs:
+            if mj_dof not in self.robot_cfg.MujocoDoF_to_DoF:
+                continue
             dof = self.robot_cfg.MujocoDoF_to_DoF[mj_dof]
             qpos[mj_dof] = dof_pos[dof]
         self.data.qpos = qpos

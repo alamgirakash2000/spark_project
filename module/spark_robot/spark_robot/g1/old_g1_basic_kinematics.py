@@ -107,8 +107,6 @@ class G1BasicKinematics(RobotKinematics):
         self.smooth_filter = WeightedMovingFilter(np.array([0.4, 0.3, 0.2, 0.1]), len(self.robot_cfg.DoFs))
           
     def add_extra_frames(self):
-        # KEEP EXACTLY THE SAME AS ORIGINAL - NO CHANGES
-        
         self.robot.model.addFrame(
             pin.Frame('L_ee',
                       self.robot.model.getJointId('left_wrist_yaw_joint'),
@@ -174,8 +172,6 @@ class G1BasicKinematics(RobotKinematics):
         )
            
     def create_fk_function(self):
-        # KEEP EXACTLY THE SAME AS ORIGINAL - NO CHANGES
-        
         # Prepare a list to hold the transformation matrices
         transforms = []
 
@@ -200,7 +196,6 @@ class G1BasicKinematics(RobotKinematics):
 
     def update_base_frame(self, trans_world2base, dof):
         try:
-            # UNCHANGED - Keep original indices (17, 18, 19)
             trans_world2base_new = pos_quat_to_transformation(
                                 np.array([dof[self.robot_cfg.DoFs.LinearX], dof[self.robot_cfg.DoFs.LinearY], trans_world2base[2,3]]), 
                                 np.array(rpy2quat([0.0, 0.0, dof[self.robot_cfg.DoFs.RotYaw]])))
